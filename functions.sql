@@ -26,7 +26,7 @@ BEGIN
 	@hasAny BIT,
 	@COUNT INT = (SELECT COUNT(FK_ProjectsID) from Employees left join Employees_Projects on FK_EmployeesID=PK_EmployeesID WHERE FirstName=@EmployeeName)
 	-- Return the result of the function
-	IF(@COUNT>1)
+	IF(@COUNT>=1)
 		RETURN 1
 	RETURN 0
 END
